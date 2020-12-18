@@ -13,115 +13,50 @@
 <!--    转换条   -->
     <el-divider>
 
-    <el-select placeholder="选择模式">
-      <el-option>学习模式</el-option>
-      <el-option>检测模式</el-option>
-      <el-option-group></el-option-group>
-      <el-option>设置</el-option>
-    </el-select>
+<!--    <el-select placeholder="选择模式">-->
+<!--      <el-option>学习模式</el-option>-->
+<!--      <el-option>检测模式</el-option>-->
+<!--      <el-option-group></el-option-group>-->
+<!--      <el-option>设置</el-option>-->
+<!--    </el-select>-->
 
     </el-divider>
 <!--    -->
-    <table class="c_grid_table">
-      <tr>
-        <td>
-          <div class="scene scene--card">
-            <div v-on:click="c_click_card(0)" v-bind:class="{'card':is_front_list[0],'card is-flipped':!is_front_list[0]}">
-              <div class="card__face card__face--front">
-                <div style="font-size:40px ">
-                  revision
-                </div>
-
-              </div>
-              <div class="card__face card__face--back">
-                <div>
-                  <div>
-                    <el-card shadow="always" style="line-height: 5; position:absolute;height: 60%; width: 70%;left: 15%;top: 10%;">
-                      <span style="">修正；复习</span>
-                    </el-card>
-                  </div>
-                  <el-row>
-                    <el-col :span="6">
-                      <el-button v-on:click.stop="c_click_test()" type="success" style="height: 50px;width: 120px;left: 5px;top: 210px;position: absolute;line-height: 12px">认识</el-button>
-                    </el-col>
-                    <el-col :span="6">
-                      <el-button v-on:click.stop="c_click_test()" type="info" style="height: 50px;width: 120px;left: 170px;top: 210px;position: absolute;line-height: 12px">不认识</el-button>
-                    </el-col>
-                    <el-col :span="6">
-                      <el-button v-on:click.stop="c_click_test()" type="danger" style="height: 50px;width: 120px;left: 350px;top: 210px;position: absolute;line-height: 12px">删除</el-button>
-                    </el-col>
-                  </el-row>
-<!--                  <el-row>-->
-
-<!--                  <el-col :span="6">-->
-<!--                    <el-card v-on:click.stop="c_click_test()" style="height: 50px;width: 120px;left: 5px;top: 210px;position: absolute;line-height: 12px">-->
-<!--                      <span>认识</span>-->
-<!--                    </el-card>-->
-<!--                  </el-col>-->
-<!--                  <el-col :span="6">-->
-<!--                    <el-card style="height: 50px;width: 120px;left: 170px;top: 210px;position: absolute;line-height: 12px">-->
-<!--                      <span>不认识</span>-->
-<!--                    </el-card>-->
-<!--                  </el-col>-->
-<!--                  <el-col :span="6">-->
-<!--                    <el-card style="height: 50px;width: 120px;left: 350px;top: 210px;position: absolute;line-height: 12px">-->
-<!--                      <span>删除</span>-->
-<!--                    </el-card>-->
-<!--                  </el-col>-->
-
-<!--                  </el-row>-->
-                </div>
-
-
-              </div>
-            </div>
+    <div style="float: left; width: 32%; height: 52%" v-for="(value,index) in sites">
+    <div class="scene scene--card" >
+      <div v-on:click="c_click_card(index)" v-bind:class="{'card':is_front_list[index],'card is-flipped':!is_front_list[index]}">
+        <div class="card__face card__face--front">
+          <div style="font-size:40px ">
+            {{value.name}}.{{index}}
+<!--            {{index}}-->
           </div>
+        </div>
+        <div class="card__face card__face--back">
+          <div>
+            <div>
+              <el-card shadow="always" style="line-height: 5; position:absolute;height: 60%; width: 70%;left: 15%;top: 10%;">
+                <span style="">修正；复习</span>
+              </el-card>
+            </div>
+            <el-row>
+              <el-col :span="6">
+                <el-button v-on:click.stop="c_click_test()" type="success" style="height: 50px;width: 120px;left: 5px;top: 210px;position: absolute;line-height: 12px">认识</el-button>
+              </el-col>
+              <el-col :span="6">
+                <el-button v-on:click.stop="c_click_test()" type="info" style="height: 50px;width: 120px;left: 170px;top: 210px;position: absolute;line-height: 12px">不认识</el-button>
+              </el-col>
+              <el-col :span="6">
+                <el-button v-on:click.stop="c_click_test()" type="danger" style="height: 50px;width: 120px;left: 350px;top: 210px;position: absolute;line-height: 12px">删除</el-button>
+              </el-col>
+            </el-row>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+<!--    -->
 
-        </td>
-        <td>
-<!--          <div class="scene scene&#45;&#45;card">-->
-<!--            <div v-on:click="c_click_card(1)" v-bind:class="{'card':is_front_list[1],'card is-flipped':!is_front_list[1]}">-->
-<!--              <div class="card__face card__face&#45;&#45;front">front</div>-->
-<!--              <div class="card__face card__face&#45;&#45;back">back</div>-->
-<!--            </div>-->
-<!--          </div>-->
-        </td>
-        <td>
-<!--          <div class="scene scene&#45;&#45;card">-->
-<!--            <div v-on:click="c_click_card(2)" v-bind:class="{'card':is_front_list[2],'card is-flipped':!is_front_list[2]}">-->
-<!--              <div class="card__face card__face&#45;&#45;front">front</div>-->
-<!--              <div class="card__face card__face&#45;&#45;back">back</div>-->
-<!--            </div>-->
-<!--          </div>-->
-        </td>
-      </tr>
-      <tr>
-        <td>
-<!--          <div class="scene scene&#45;&#45;card">-->
-<!--            <div v-on:click="c_click_card(3)" v-bind:class="{'card':is_front_list[3],'card is-flipped':!is_front_list[3]}">-->
-<!--              <div class="card__face card__face&#45;&#45;front">front</div>-->
-<!--              <div class="card__face card__face&#45;&#45;back">back</div>-->
-<!--            </div>-->
-<!--          </div>-->
-        </td>
-        <td>
-<!--          <div class="scene scene&#45;&#45;card">-->
-<!--            <div v-on:click="c_click_card(4)" v-bind:class="{'card':is_front_list[4],'card is-flipped':!is_front_list[4]}">-->
-<!--              <div class="card__face card__face&#45;&#45;front">front</div>-->
-<!--              <div class="card__face card__face&#45;&#45;back">back</div>-->
-<!--            </div>-->
-<!--          </div>-->
-        </td>
-        <td>
-<!--          <div class="scene scene&#45;&#45;card">-->
-<!--            <div v-on:click="c_click_card(5)" v-bind:class="{'card':is_front_list[5],'card is-flipped':!is_front_list[5]}">-->
-<!--              <div class="card__face card__face&#45;&#45;front">front</div>-->
-<!--              <div class="card__face card__face&#45;&#45;back">back</div>-->
-<!--            </div>-->
-<!--          </div>-->
-        </td>
-      </tr>
-    </table>
+
   </div>
 </template>
 
@@ -142,18 +77,29 @@ export default {
     return {
       is_front: true,
       test_index: 100,
-      is_front_list:[true,true,true,true,true,true]
+      is_front_list:[true,true,true,true,true,true],
+      sites: [
+        { name: 'Runoob' ,is_front: true},
+        { name: 'Google' ,is_front: true},
+        { name: 'Taobao' ,is_front: true},
+        {name: 'wrong',is_front: true},
+        {name: 'apple',is_front: true},
+        {name: 'twitter',is_front: true}
+      ]
     }
   },
   methods:{
     c_click_card: function (is_front_index){
+      console.log(this.is_front_list)
       // this.is_front_list[is_front_index] = !this.is_front_list[is_front_index]
       let new_bool_value = !this.is_front_list[is_front_index]
+      console.log(new_bool_value)
       // this.is_front_list.$set(is_front_index,new_bool_value)
       Vue.set(this.is_front_list,is_front_index,new_bool_value)
       // this.is_front = !this.is_front
-      // console.log(is_front_index)
-      // console.log(this.is_front_list)
+      console.log(is_front_index)
+      console.log(typeof is_front_index)
+      console.log(this.is_front_list)
     },
     c_click_test: function (event){
       // event.stopPropagation();
@@ -216,7 +162,7 @@ export default {
   width: 100%;
   height: 100%;
   //border: 1px solid #CCC;
-  margin: 40px 0;
+  margin: 0px 0px;
   perspective: 2000px;
 }
 
